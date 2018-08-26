@@ -29,7 +29,7 @@ class MessageHandler(BaseHTTPRequestHandler):
         # 2. Read the correct amount of data from the request.
         data = self.rfile.read(l).decode()
 
-        # 3. Extract the "message" field from the request data.
+        # 3. Extract the "message" field from the request data; and use "query string" parser from urllib to extract messege
         m = parse_qs(data)["message"][0]
         # Send the "message" field back as the response.
         self.send_response(200)
